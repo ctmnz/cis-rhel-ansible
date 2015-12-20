@@ -230,17 +230,17 @@
       - scored
       - section6.2
       - section6.2.7
-
-  - name: 6.2.8 Disable SSH Root Login (Scored)
-    lineinfile: >
-      dest=/etc/ssh/sshd_config
-      regexp="^PermitRootLogin "
-      line="PermitRootLogin no"
-    notify: Reload sshd
-    tags:
-      - scored
-      - section6.2
-      - section6.2.8
+# Shoot yourself in the leg?
+#  - name: 6.2.8 Disable SSH Root Login (Scored)
+#    lineinfile: >
+#      dest=/etc/ssh/sshd_config
+#      regexp="^PermitRootLogin "
+#      line="PermitRootLogin no"
+#    notify: Reload sshd
+#    tags:
+#      - scored
+#      - section6.2
+#      - section6.2.8
 
   - name: 6.2.9 Set SSH PermitEmptyPasswords to No (Scored)
     lineinfile: >
@@ -297,53 +297,53 @@
       - section6.2
       - section6.2.12
 
-  - name: 6.2.13 Limit Access via SSH (Scored)
-    lineinfile: >
-      dest=/etc/ssh/sshd_config
-      regexp="^AllowGroups "
-      line="AllowGroups {{ ssh_allow_groups }}"
-    when: ssh_allow_groups is defined
-    notify: Reload sshd
-    tags:
-      - scored
-      - section6.2
-      - section6.2.13
+#  - name: 6.2.13 Limit Access via SSH (Scored)
+#    lineinfile: >
+#      dest=/etc/ssh/sshd_config
+#      regexp="^AllowGroups "
+#      line="AllowGroups {{ ssh_allow_groups }}"
+#    when: ssh_allow_groups is defined
+#    notify: Reload sshd
+#    tags:
+#      - scored
+#      - section6.2
+#      - section6.2.13
 
-  - name: 6.2.13 Limit Access via SSH (Scored)
-    lineinfile: >
-      dest=/etc/ssh/sshd_config 
-      regexp="^AllowUsers "
-      line="AllowUsers {{ ssh_allow_users }}"
-    when: ssh_allow_users is defined
-    notify: Reload sshd
-    tags:
-      - scored
-      - section6.2
-      - section6.2.13
+#  - name: 6.2.13 Limit Access via SSH (Scored)
+#    lineinfile: >
+#      dest=/etc/ssh/sshd_config 
+#      regexp="^AllowUsers "
+#      line="AllowUsers {{ ssh_allow_users }}"
+#    when: ssh_allow_users is defined
+#    notify: Reload sshd
+#    tags:
+#      - scored
+#      - section6.2
+#      - section6.2.13
 
-  - name: 6.2.13 Limit Access via SSH (Scored)
-    lineinfile: >
-      dest=/etc/ssh/sshd_config
-      regexp="^DenyGroups "
-      line="DenyGroups {{ ssh_deny_groups }}"
-    when: ssh_deny_groups is defined
-    notify: Reload sshd
-    tags:
-      - scored
-      - section6.2
-      - section6.2.13
+#  - name: 6.2.13 Limit Access via SSH (Scored)
+#    lineinfile: >
+#      dest=/etc/ssh/sshd_config
+#      regexp="^DenyGroups "
+#      line="DenyGroups {{ ssh_deny_groups }}"
+#    when: ssh_deny_groups is defined
+#    notify: Reload sshd
+#    tags:
+#      - scored
+#      - section6.2
+#      - section6.2.13
 
-  - name: 6.2.13 Limit Access via SSH (Scored)
-    lineinfile: >
-      dest=/etc/ssh/sshd_config
-      regexp="^DenyUsers "
-      line="DenyUsers {{ ssh_deny_users }}"
-    when: ssh_deny_users is defined
-    notify: Reload sshd
-    tags:
-      - scored
-      - section6.2
-      - section6.2.13
+#  - name: 6.2.13 Limit Access via SSH (Scored)
+#    lineinfile: >
+#      dest=/etc/ssh/sshd_config
+#      regexp="^DenyUsers "
+#      line="DenyUsers {{ ssh_deny_users }}"
+#    when: ssh_deny_users is defined
+#    notify: Reload sshd
+#    tags:
+#      - scored
+#      - section6.2
+#      - section6.2.13
 
   - name: 6.2.14 Set SSH Banner (Scored)
     lineinfile: >
@@ -378,38 +378,38 @@
       - section6.3
       - section6.3.1
 
-  - name: 6.3.2 - 6.3.4 Configure PAM (Scored)
-    copy: >
-      src=etc/pam.d/system-auth
-      dest=/etc/pam.d/system-auth
-    tags:
-      - scored
-      - section6.3
-      - section6.3.2
-      - section6.3.3
-      - section6.3.4
+#  - name: 6.3.2 - 6.3.4 Configure PAM (Scored)
+#    copy: >
+#      src=etc/pam.d/system-auth
+#      dest=/etc/pam.d/system-auth
+#    tags:
+#      - scored
+#      - section6.3
+#      - section6.3.2
+#      - section6.3.3
+#      - section6.3.4
 
-  - name: 6.3.2 - 6.3.4 Configure PAM (Scored)
-    copy: >
-      src=etc/pam.d/password-auth
-      dest=/etc/pam.d/password-auth
-    tags:
-      - scored
-      - section6.3
-      - section6.3.2
-      - section6.3.3
-      - section6.3.4
+#  - name: 6.3.2 - 6.3.4 Configure PAM (Scored)
+#    copy: >
+#      src=etc/pam.d/password-auth
+#      dest=/etc/pam.d/password-auth
+#    tags:
+#      - scored
+#      - section6.3
+#      - section6.3.2
+#      - section6.3.3
+#      - section6.3.4
 
-  - name: 6.4 Restrict root login to system console (Not Scored)
-    debug: msg="Too restrictive for most environments."
-    tags:
-      - notscored
-      - section6.4
+#  - name: 6.4 Restrict root login to system console (Not Scored)
+#    debug: msg="Too restrictive for most environments."
+#    tags:
+#      - notscored
+#      - section6.4
 
-  - name: 6.5 Restrict Access to the su Command (Scored)
-    copy: >
-      src=etc/pam.d/su
-      dest=/etc/pam.d/su
-    tags:
-      - scored
-      - section6.5
+#  - name: 6.5 Restrict Access to the su Command (Scored)
+#    copy: >
+#      src=etc/pam.d/su
+#      dest=/etc/pam.d/su
+#    tags:
+#      - scored
+#      - section6.5

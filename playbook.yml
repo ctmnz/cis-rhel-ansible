@@ -15,7 +15,7 @@
 #   limitations under the License.
 #
 
-- hosts: all
+- hosts: c6
   accelerate: true
   user: root
   roles:
